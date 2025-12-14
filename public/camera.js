@@ -11,7 +11,6 @@ export function setupCamera(scene, canvas) {
 
   scene.registerBeforeRender(() => {
     cameraDirection = BABYLON.Vector3.Normalize(camera.getDirection(BABYLON.Axis.Z));
-    console.log(`${cameraDirection}`)
   });
 
   window.addEventListener('wheel', (e) => {
@@ -24,6 +23,12 @@ export function setupCamera(scene, canvas) {
         camera.position.addInPlace(cameraDirection.scale(-zoomSpeed));
     }
   });
+
+  window.addEventListener('mousedown', (e) => {
+    if (e.button === 1) {
+      console.log('wheel clicked');
+    }
+});
 
 
 
