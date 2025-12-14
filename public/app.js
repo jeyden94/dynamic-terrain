@@ -30,7 +30,7 @@
         mapSubZ: mapSubZ,
         terrainSub: terrainSub
     };
-    terrain = new BABYLON.DynamicTerrain("terrain", params, scene);
+    const terrain = new BABYLON.DynamicTerrain("terrain", params, scene);
 
     // Create a sphere
     const sphere = BABYLON.MeshBuilder.CreateSphere('sphere', { diameter: 2 }, scene);
