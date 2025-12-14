@@ -6,10 +6,10 @@ export function setupCamera(scene, canvas) {
   camera.speed = 0;
   camera.rotation.x = -Math.PI / 2;
 
-//   const keys = {};
+  const keys = {};
   window.addEventListener('keydown', (e) => {
     keys[e.key] = true;
-    // console.log(`${keys[e.key]}`)
+    console.log(`${keys[e.key]}`)
   });
   window.addEventListener('keyup', (e) => {
     keys[e.key] = false;
