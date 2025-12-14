@@ -1,5 +1,5 @@
 export function setupCamera(scene, canvas) {
-  const camera = new BABYLON.FreeCamera('camera1', new BABYLON.Vector3(0, 5, -2));
+  const camera = new BABYLON.FreeCamera('camera1', new BABYLON.Vector3(0, 15, -2));
   camera.attachControl(canvas, false);
   camera.inertia = 0.7;
   camera.angularSensibility = 1000;
@@ -11,10 +11,18 @@ export function setupCamera(scene, canvas) {
     // wheel in = zoom in
     // wheel out = zoom out
 
-  const mouseInput = {};
   window.addEventListener('wheel', (e) => {
-    console.log(e)
+    e.preventDefault();
+
+    const zoomSpeed = 0.5;
+
+    if (e.deltaY < 0) {
+        camera.position.y += zoomSpeed;
+    } else if (e.deltaY > 0) {
+        camera.position.y -= zoomSpeed;
+    }
   });
+
   window.addEventListener('click', (e) => {
     console.log(e)
   })
