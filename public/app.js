@@ -5,10 +5,10 @@
     const scene = new BABYLON.Scene(engine);
     
     // Camera
-    const camera = setupCamera(scene, canvas);
+    var camera = setupCamera(scene, canvas);
 
     // Light
-    const light = new BABYLON.HemisphericLight('light1', new BABYLON.Vector3(0, 1, 0), scene);
+    var light = new BABYLON.HemisphericLight('light1', new BABYLON.Vector3(0, 1, 0), scene);
     
     // map creation
     var mapSubX = 100;
@@ -30,18 +30,18 @@
         mapSubZ: mapSubZ,
         terrainSub: terrainSub
     };
-    const terrain = new BABYLON.DynamicTerrain("terrain", params, scene);
+    var terrain = new BABYLON.DynamicTerrain("terrain", params, scene);
 
-    const terrainMaterial = new BABYLON.StandardMaterial('terrainMat', scene);
+    var terrainMaterial = new BABYLON.StandardMaterial('terrainMat', scene);
     terrainMaterial.diffuse = new BABYLON.Color3(0, 1, 0);  // green
     terrain.mesh.material = terrainMaterial;
 
     // Create a sphere
-    const sphere = BABYLON.MeshBuilder.CreateSphere('sphere', { diameter: 2 }, scene);
+    var sphere = BABYLON.MeshBuilder.CreateSphere('sphere', { diameter: 2 }, scene);
     sphere.position.y = 1;
     
     // Material for the sphere
-    const material = new BABYLON.StandardMaterial('sphereMat', scene);
+    var material = new BABYLON.StandardMaterial('sphereMat', scene);
     material.diffuse = new BABYLON.Color3(0.2, 0.5, 1);
     sphere.material = material;
     
