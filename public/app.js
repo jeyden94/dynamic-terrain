@@ -48,15 +48,14 @@
 
     // Convert mapData to pathArray for Ribbon
     var pathArray = [];
-    for (var z = 0; z < mapSubZ; z++) {
+    for (var x = 0; x < mapSubX; x++) {  // swap the loop order
         var path = [];
-        for (var x = 0; x < mapSubX; x++) {
+        for (var z = 0; z < mapSubZ; z++) {
             var idx = (z * mapSubX + x) * 3;
             path.push(new BABYLON.Vector3(mapData[idx], mapData[idx+1], mapData[idx+2]));
         }
         pathArray.push(path);
     }
-
     // Create the terrain as a single mesh
     var terrain = BABYLON.MeshBuilder.CreateRibbon('terrain', { pathArray: pathArray }, scene);
 
