@@ -3,7 +3,7 @@
     const scene = new BABYLON.Scene(engine);
     
     // Camera
-    const camera = new BABYLON.UniversalCamera('camera1', new BABYLON.Vector3(0, 50, 0));
+    const camera = new BABYLON.UniversalCamera('camera1', new BABYLON.Vector3(0, 5, -10));
     camera.attachControl(canvas, true);
     
     // Light
