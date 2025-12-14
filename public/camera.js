@@ -18,7 +18,6 @@ export function setupCamera(scene, canvas) {
   });
 
   scene.registerBeforeRender(() => {
-    console.log('frame')
     const forward = BABYLON.Vector3.Normalize(camera.getDirection(BABYLON.Axis.Z));
 
   });
