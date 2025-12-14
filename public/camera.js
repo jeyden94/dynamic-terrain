@@ -5,6 +5,8 @@ export function setupCamera(scene, canvas) {
   camera.angularSensibility = 1000;
   camera.speed = 0;
 
+  camera.rotation.x = .25;
+
   const keys = {};
   window.addEventListener('keydown', (e) => {
     keys[e.key] = true;
