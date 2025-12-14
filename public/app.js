@@ -35,7 +35,7 @@
 
     var terrainMaterial = new BABYLON.StandardMaterial('terrainMat', scene);
     terrainMaterial.diffuseColor = new BABYLON.Color3(0, 1, 0);  // green
-    terrain.material = terrainMaterial;
+    terrain.mesh.material = terrainMaterial;
     console.log('Terrain material:', terrain.mesh.material);
 
 
@@ -44,10 +44,10 @@
     sphere.position.y = 1;
     
     // Material for the sphere
-    var material = new BABYLON.StandardMaterial('sphereMat', scene);
-    material.diffuseColor = new BABYLON.Color3(0.2, 0.5, 1);
-    sphere.material = material;
-    console.log('Sphere material:', sphere.material);
+    var sphereMaterial = new BABYLON.StandardMaterial('sphereMat', scene);
+    sphereMaterial.diffuseColor = new BABYLON.Color3(0.2, 0.5, 1);
+    sphere.sphereMaterial = material;
+    console.log('Sphere material:', sphere.sphereMaterial);
 
     
     // Render loop
