@@ -17,7 +17,6 @@
     camera.angularSensibility = 1000;
     camera.speed = 0;  // disable default movement
 
-    // Custom keyboard handling
     const keys = {};
     window.addEventListener('keydown', (e) => {
       keys[e.key] = true;
@@ -28,13 +27,24 @@
 
     scene.registerBeforeRender(() => {
       const moveSpeed = 0.5;
-      if (keys['ArrowDown'] && keys['Shift']) {
-        camera.position.y -= moveSpeed;  // shift + down = descend
-      } else if (keys['ArrowDown']) {
-        // do something else, like zoom
+      
+      if (keys['ArrowRight']) {
+        camera.position.x += moveSpeed;
       }
-      if (keys['ArrowUp']) {
+      if (keys['ArrowLeft']) {
+        camera.position.x -= moveSpeed;
+      }
+      if (keys['ArrowUp'] && !keys['Shift']) {
+        camera.position.z -= moveSpeed;  // forward
+      }
+      if (keys['ArrowDown'] && !keys['Shift']) {
+        camera.position.z += moveSpeed;  // backward
+      }
+      if (keys['Shift'] && keys['ArrowUp']) {
         camera.position.y += moveSpeed;  // ascend
+      }
+      if (keys['Shift'] && keys['ArrowDown']) {
+        camera.position.y -= moveSpeed;  // descend
       }
     });
 
