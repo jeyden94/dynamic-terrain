@@ -8,10 +8,7 @@ export function setupCamera(scene, canvas) {
 
   let cameraDirection = BABYLON.Vector3.Zero();  // declare here
 
-
-  scene.registerBeforeRender(() => {
-    cameraDirection = BABYLON.Vector3.Normalize(camera.getDirection(BABYLON.Axis.Z));
-  });
+  // Handle zoom
 
   window.addEventListener('wheel', (e) => {
 
@@ -24,13 +21,19 @@ export function setupCamera(scene, canvas) {
     }
   });
 
-  window.addEventListener('mousedown', (e) => {
-    console.log(`${e.button}`)
-    if (e.button === 1) {
-      console.log('wheel clicked');
-    }
-});
+  let wheelPressed = false;
 
+  window.addEventListener('mousedown', (e) => {
+    if (e.button === 1) wheelPressed = true;
+  });
+
+  window.addEventListener('mouseup', (e) => {
+    if (e.button === 1) wheelPressed = false;
+  });
+
+  scene.registerBeforeRender(() => {
+    cameraDirection = BABYLON.Vector3.Normalize(camera.getDirection(BABYLON.Axis.Z));
+  });
 
 
 //   const keys = {};
