@@ -13,7 +13,7 @@ export function setupCamera(scene, canvas) {
 
   window.addEventListener('wheel', (e) => {
 
-    const zoomSpeed = 0.9;
+    const zoomSpeed = Math.abs(e.deltaY) * 0.01;
 
     if (e.deltaY < 0) {
         camera.position.y -= zoomSpeed;
