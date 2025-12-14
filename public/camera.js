@@ -1,5 +1,5 @@
 export function setupCamera(scene, canvas) {
-  const camera = new BABYLON.FreeCamera('camera1', new BABYLON.Vector3(0, 5, -5));
+  const camera = new BABYLON.FreeCamera('camera1', new BABYLON.Vector3(0, 5, 0));
   camera.attachControl(canvas, false);
   camera.inertia = 0.7;
   camera.angularSensibility = 1000;
