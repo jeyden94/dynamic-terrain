@@ -46,7 +46,7 @@
     // Material for the sphere
     var sphereMaterial = new BABYLON.StandardMaterial('sphereMat', scene);
     sphereMaterial.diffuseColor = new BABYLON.Color3(0.2, 0.5, 1);
-    sphere.sphereMaterial = material;
+    sphere.material = sphereMaterial;
     console.log('Sphere material:', sphere.sphereMaterial);
 
     
