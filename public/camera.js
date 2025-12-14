@@ -6,11 +6,6 @@ export function setupCamera(scene, canvas) {
   camera.speed = 0;
   camera.rotation.x = -Math.PI / 2;
 
-
-  // mouse movement 
-    // wheel in = zoom in
-    // wheel out = zoom out
-
   window.addEventListener('wheel', (e) => {
 
     const zoomSpeed = Math.abs(e.deltaY) * 0.01;
@@ -22,19 +17,25 @@ export function setupCamera(scene, canvas) {
     }
   });
 
-  window.addEventListener('click', (e) => {
-    console.log(e)
-  })
+  scene.registerBeforeRender(() => {
+    console.log('frame')
+    const forward = BABYLON.Vector3.Normalize(camera.getDirection(BABYLON.Axis.Z));
 
-  const keys = {};
-  window.addEventListener('keydown', (e) => {
-    keys[e.key] = true;
-    console.log(e);
-    console.log(`${keys[e.key]}`);
   });
-  window.addEventListener('keyup', (e) => {
-    keys[e.key] = false;
-  });
+
+
+
+
+
+//   const keys = {};
+//   window.addEventListener('keydown', (e) => {
+//     keys[e.key] = true;
+//     console.log(e);
+//     console.log(`${keys[e.key]}`);
+//   });
+//   window.addEventListener('keyup', (e) => {
+//     keys[e.key] = false;
+//   });
 
 //   scene.registerBeforeRender(() => {
 //     const moveSpeed = 0.5;
