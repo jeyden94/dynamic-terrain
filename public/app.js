@@ -33,7 +33,7 @@
     // };
     // var terrain = new BABYLON.DynamicTerrain("terrain", params, scene);
 
-    
+
     // terrain creation
 
     var pathArray = [];
@@ -46,14 +46,23 @@
         pathArray.push(path);
     }
 
+    // Convert mapData to pathArray for Ribbon
+    var pathArray = [];
+    for (var z = 0; z < mapSubZ; z++) {
+        var path = [];
+        for (var x = 0; x < mapSubX; x++) {
+            var idx = (z * mapSubX + x) * 3;
+            path.push(new BABYLON.Vector3(mapData[idx], mapData[idx+1], mapData[idx+2]));
+        }
+        pathArray.push(path);
+    }
+
+    // Create the terrain as a single mesh
     var terrain = BABYLON.MeshBuilder.CreateRibbon('terrain', { pathArray: pathArray }, scene);
 
-
     var terrainMaterial = new BABYLON.StandardMaterial('terrainMat', scene);
-    terrainMaterial.diffuseColor = new BABYLON.Color3(0, 1, 0);  // green
-    terrain.mesh.material = terrainMaterial;
-    console.log('Terrain material:', terrain.mesh.material);
-
+    terrainMaterial.diffuseColor = new BABYLON.Color3(0, 1, 0);
+    terrain.material = terrainMaterial;
 
     // Create a sphere
     var sphere = BABYLON.MeshBuilder.CreateSphere('sphere', { diameter: 2 }, scene);
