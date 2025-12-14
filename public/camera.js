@@ -25,6 +25,7 @@ export function setupCamera(scene, canvas) {
   });
 
   window.addEventListener('mousedown', (e) => {
+    console.log(`${e.button}`)
     if (e.button === 1) {
       console.log('wheel clicked');
     }
