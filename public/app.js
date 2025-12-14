@@ -34,7 +34,7 @@
     var terrain = new BABYLON.DynamicTerrain("terrain", params, scene);
 
     var terrainMaterial = new BABYLON.StandardMaterial('terrainMat', scene);
-    terrainMaterial.diffuse = new BABYLON.Color3(0, 1, 0);  // green
+    terrainMaterial.diffuseColor = new BABYLON.Color3(0, 1, 0);  // green
     terrain.mesh.material = terrainMaterial;
     console.log('Terrain material:', terrain.mesh.material);
 
@@ -45,7 +45,7 @@
     
     // Material for the sphere
     var material = new BABYLON.StandardMaterial('sphereMat', scene);
-    material.diffuse = new BABYLON.Color3(0.2, 0.5, 1);
+    material.diffuseColor = new BABYLON.Color3(0.2, 0.5, 1);
     sphere.material = material;
     console.log('Sphere material:', sphere.material);
 
