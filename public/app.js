@@ -25,13 +25,29 @@
 
     // terrain creation
     // var terrainSub = 50;
-    var params = {
-        mapData: mapData,
-        mapSubX: mapSubX,
-        mapSubZ: mapSubZ,
-        // terrainSub: terrainSub
-    };
-    var terrain = new BABYLON.DynamicTerrain("terrain", params, scene);
+    // var params = {
+    //     mapData: mapData,
+    //     mapSubX: mapSubX,
+    //     mapSubZ: mapSubZ,
+    //     // terrainSub: terrainSub
+    // };
+    // var terrain = new BABYLON.DynamicTerrain("terrain", params, scene);
+
+    
+    // terrain creation
+
+    var pathArray = [];
+    for (var z = 0; z < mapSubZ; z++) {
+        var path = [];
+        for (var x = 0; x < mapSubX; x++) {
+            var idx = (z * mapSubX + x) * 3;
+            path.push(new BABYLON.Vector3(mapData[idx], mapData[idx+1], mapData[idx+2]));
+        }
+        pathArray.push(path);
+    }
+
+    var terrain = BABYLON.MeshBuilder.CreateRibbon('terrain', { pathArray: pathArray }, scene);
+
 
     var terrainMaterial = new BABYLON.StandardMaterial('terrainMat', scene);
     terrainMaterial.diffuseColor = new BABYLON.Color3(0, 1, 0);  // green
