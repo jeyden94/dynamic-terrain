@@ -16,7 +16,7 @@
     for (var l = 0; l < mapSubZ; l++) {           
         for (var w = 0; w < mapSubX; w++) {                
             mapData[3 *(l * mapSubX + w)] = (w - mapSubX * 0.5) * 2.0;
-            mapData[3 * (l * mapSubX + w) + 1] = w / (l +1) * Math.sin(l / 2) * Math.cos(w / 2) * 2.0;
+            mapData[3 * (l * mapSubX + w) + 1] =Math.sin(l / 2) * Math.cos(w / 2) * 2.0;
             mapData[3 * (l * mapSubX + w) + 2] = (l - mapSubZ * 0.5) * 2.0;
         }            
     }
