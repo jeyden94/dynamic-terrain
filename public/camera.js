@@ -6,6 +6,11 @@ export function setupCamera(scene, canvas) {
   camera.speed = 0;
   camera.rotation.x = -Math.PI / 2;
 
+  const mouseInput = {};
+  window.addEventListener('scroll', (e) => {
+    console.log(e)
+  })
+
   const keys = {};
   window.addEventListener('keydown', (e) => {
     keys[e.key] = true;
