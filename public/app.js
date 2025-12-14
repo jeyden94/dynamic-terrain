@@ -3,8 +3,11 @@
     const scene = new BABYLON.Scene(engine);
     
     // Camera
-    const camera = new BABYLON.UniversalCamera('camera1', new BABYLON.Vector3(0, 20, -10));
+    const camera = new BABYLON.FreeCamera('camera1', new BABYLON.Vector3(0, 20, -10));
     camera.attachControl(canvas, true);
+    camera.inertia = 0.7;
+    camera.angularSensibility = 1000;
+    camera.speed = 0.5;
     
     // Light
     const light = new BABYLON.HemisphericLight('light1', new BABYLON.Vector3(0, 1, 0), scene);
