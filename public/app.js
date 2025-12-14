@@ -3,7 +3,7 @@
     const scene = new BABYLON.Scene(engine);
     
     // Camera
-    const camera = new BABYLON.UniversalCamera('camera1', new BABYLON.Vector3(0, 5, -10));
+    const camera = new BABYLON.UniversalCamera('camera1', new BABYLON.Vector3(0, 50, 0));
     camera.attachControl(canvas, true);
     
     // Light
@@ -20,6 +20,16 @@
             mapData[3 * (l * mapSubX + w) + 2] = (l - mapSubZ * 0.5) * 2.0;
         }            
     }
+
+    // terrain creation
+    var terrainSub = 50;
+    var params = {
+        mapData: mapData,
+        mapSubX: mapSubX,
+        mapSubZ: mapSubZ,
+        terrainSub: terrainSub
+    };
+    terrain = new BABYLON.DynamicTerrain("terrain", params, scene);
 
     // Create a sphere
     const sphere = BABYLON.MeshBuilder.CreateSphere('sphere', { diameter: 2 }, scene);
