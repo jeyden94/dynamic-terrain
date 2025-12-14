@@ -8,8 +8,9 @@
     var camera = setupCamera(scene, canvas);
 
     // Light
-    const light = new BABYLON.HemisphericLight('light1', new BABYLON.Vector3(1, 1, 1), scene);    
-    
+    const light = new BABYLON.HemisphericLight('light1', new BABYLON.Vector3(1, 1, 1), scene);
+    light.intensity = 0.5;  // reduce intensity    
+
     // map creation
     var mapSubX = 100;
     var mapSubZ = 100;
