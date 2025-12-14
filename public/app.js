@@ -24,12 +24,12 @@
     }
 
     // terrain creation
-    var terrainSub = 50;
+    // var terrainSub = 50;
     var params = {
         mapData: mapData,
         mapSubX: mapSubX,
         mapSubZ: mapSubZ,
-        terrainSub: terrainSub
+        // terrainSub: terrainSub
     };
     var terrain = new BABYLON.DynamicTerrain("terrain", params, scene);
 
