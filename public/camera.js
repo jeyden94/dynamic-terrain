@@ -7,12 +7,13 @@ export function setupCamera(scene, canvas) {
   camera.rotation.x = -Math.PI / 2;
 
 //   const keys = {};
-//   window.addEventListener('keydown', (e) => {
-//     keys[e.key] = true;
-//   });
-//   window.addEventListener('keyup', (e) => {
-//     keys[e.key] = false;
-//   });
+  window.addEventListener('keydown', (e) => {
+    keys[e.key] = true;
+    console.log(`${keys[e.key]}`)
+  });
+  window.addEventListener('keyup', (e) => {
+    keys[e.key] = false;
+  });
 
 //   scene.registerBeforeRender(() => {
 //     const moveSpeed = 0.5;
