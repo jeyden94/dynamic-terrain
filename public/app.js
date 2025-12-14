@@ -22,7 +22,7 @@
     }
 
     // terrain creation
-    var terrainSub = 50;
+    var terrainSub = 10;
     var params = {
         mapData: mapData,
         mapSubX: mapSubX,
