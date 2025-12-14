@@ -6,23 +6,24 @@ export function setupCamera(scene, canvas) {
   camera.speed = 0;
   camera.rotation.x = -Math.PI / 2;
 
+  let cameraDirection = BABYLON.Vector3.Zero();  // declare here
+
+
+  scene.registerBeforeRender(() => {
+    cameraDirection = BABYLON.Vector3.Normalize(camera.getDirection(BABYLON.Axis.Z));
+
+  });
+
   window.addEventListener('wheel', (e) => {
 
     const zoomSpeed = Math.abs(e.deltaY) * 0.01;
 
     if (e.deltaY < 0) {
-        camera.position.y -= zoomSpeed;
+        cameraDirection -= zoomSpeed;
     } else if (e.deltaY > 0) {
-        camera.position.y += zoomSpeed;
+        cameraDirection += zoomSpeed;
     }
   });
-
-  scene.registerBeforeRender(() => {
-    const forward = BABYLON.Vector3.Normalize(camera.getDirection(BABYLON.Axis.Z));
-
-  });
-
-
 
 
 
