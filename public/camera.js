@@ -6,8 +6,13 @@ export function setupCamera(scene, canvas) {
   camera.speed = 0;
   camera.rotation.x = -Math.PI / 2;
 
+
+  // mouse movement 
+    // wheel in = zoom in
+    // wheel out = zoom out
+
   const mouseInput = {};
-  window.addEventListener('scroll', (e) => {
+  window.addEventListener('wheel', (e) => {
     console.log(e)
   });
   window.addEventListener('click', (e) => {
