@@ -1,53 +1,11 @@
+    import { setupCamera } from './camera.js';
+    
     const canvas = document.getElementById('renderCanvas');
     const engine = new BABYLON.Engine(canvas, true);
     const scene = new BABYLON.Scene(engine);
     
     // Camera
-    // const camera = new BABYLON.FreeCamera('camera1', new BABYLON.Vector3(0, 20, -10));
-    // camera.attachControl(canvas, true);
-    // camera.inertia = 0.7;
-    // camera.angularSensibility = 1000;
-    // camera.speed = 0.5;
-    
-
-    // Enhanced Camera
-    const camera = new BABYLON.FreeCamera('camera1', new BABYLON.Vector3(0, 20, -10));
-    camera.attachControl(canvas, true);
-    camera.inertia = 0.7;
-    camera.angularSensibility = 1000;
-    camera.speed = 0;  // disable default movement
-
-    const keys = {};
-    window.addEventListener('keydown', (e) => {
-      keys[e.key] = true;
-    });
-    window.addEventListener('keyup', (e) => {
-      keys[e.key] = false;
-    });
-
-    scene.registerBeforeRender(() => {
-      const moveSpeed = 0.5;
-      
-      if (keys['ArrowRight']) {
-        camera.position.x += moveSpeed;
-      }
-      if (keys['ArrowLeft']) {
-        camera.position.x -= moveSpeed;
-      }
-      if (keys['ArrowUp'] && !keys['Shift']) {
-        camera.position.z -= moveSpeed;  // forward
-      }
-      if (keys['ArrowDown'] && !keys['Shift']) {
-        camera.position.z += moveSpeed;  // backward
-      }
-      if (keys['Shift'] && keys['ArrowUp']) {
-        camera.position.y += moveSpeed;  // ascend
-      }
-      if (keys['Shift'] && keys['ArrowDown']) {
-        camera.position.y -= moveSpeed;  // descend
-      }
-    });
-
+    const camera = setupCamera(scene, canvas);
 
     // Light
     const light = new BABYLON.HemisphericLight('light1', new BABYLON.Vector3(0, 1, 0), scene);
