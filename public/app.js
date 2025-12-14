@@ -3,12 +3,42 @@
     const scene = new BABYLON.Scene(engine);
     
     // Camera
+    // const camera = new BABYLON.FreeCamera('camera1', new BABYLON.Vector3(0, 20, -10));
+    // camera.attachControl(canvas, true);
+    // camera.inertia = 0.7;
+    // camera.angularSensibility = 1000;
+    // camera.speed = 0.5;
+    
+
+    // Enhanced Camera
     const camera = new BABYLON.FreeCamera('camera1', new BABYLON.Vector3(0, 20, -10));
     camera.attachControl(canvas, true);
     camera.inertia = 0.7;
     camera.angularSensibility = 1000;
-    camera.speed = 0.5;
-    
+    camera.speed = 0;  // disable default movement
+
+    // Custom keyboard handling
+    const keys = {};
+    window.addEventListener('keydown', (e) => {
+      keys[e.key] = true;
+    });
+    window.addEventListener('keyup', (e) => {
+      keys[e.key] = false;
+    });
+
+    scene.registerBeforeRender(() => {
+      const moveSpeed = 0.5;
+      if (keys['ArrowDown'] && keys['Shift']) {
+        camera.position.y -= moveSpeed;  // shift + down = descend
+      } else if (keys['ArrowDown']) {
+        // do something else, like zoom
+      }
+      if (keys['ArrowUp']) {
+        camera.position.y += moveSpeed;  // ascend
+      }
+    });
+
+
     // Light
     const light = new BABYLON.HemisphericLight('light1', new BABYLON.Vector3(0, 1, 0), scene);
     
