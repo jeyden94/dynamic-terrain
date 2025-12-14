@@ -1,10 +1,19 @@
 export function setupCamera(scene, canvas) {
-  const camera = new BABYLON.FreeCamera('camera1', new BABYLON.Vector3(0, 15, -2));
-  camera.attachControl(canvas, false);
-  camera.inertia = 0.7;
-  camera.angularSensibility = 1000;
-  camera.speed = 0;
-  camera.rotation.x = -Math.PI / 2;
+  // const camera = new BABYLON.FreeCamera('camera1', new BABYLON.Vector3(0, 15, -2));
+  // camera.attachControl(canvas, false);
+  // camera.inertia = 0.7;
+  // camera.angularSensibility = 1000;
+  // camera.speed = 0;
+  // camera.rotation.x = -Math.PI / 2;
+
+    // Creates, angles, distances and targets the camera
+	var camera = new BABYLON.ArcRotateCamera("Camera", 0, 0, 10, new BABYLON.Vector3(0, 0, 0), scene);
+
+    // This positions the camera
+    camera.setPosition(new BABYLON.Vector3(0, 0, -10));
+
+    // This attaches the camera to the canvas
+    camera.attachControl(canvas, true);
 
   let cameraDirection = BABYLON.Vector3.Zero();  // declare here
 
