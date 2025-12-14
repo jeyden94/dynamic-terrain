@@ -9,6 +9,9 @@ export function setupCamera(scene, canvas) {
   const mouseInput = {};
   window.addEventListener('scroll', (e) => {
     console.log(e)
+  });
+  window.addEventListener('click', (e) => {
+    console.log(e)
   })
 
   const keys = {};
