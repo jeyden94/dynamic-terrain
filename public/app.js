@@ -31,7 +31,10 @@
         terrainSub: terrainSub
     };
     const terrain = new BABYLON.DynamicTerrain("terrain", params, scene);
-    terrain.diffuse = new BABYLON.Color3(0, 1, 0);
+
+    const terrainMaterial = new BABYLON.StandardMaterial('terrainMat', scene);
+    terrainMaterial.diffuse = new BABYLON.Color3(0, 1, 0);  // green
+    terrain.mesh.material = terrainMaterial;
 
     // Create a sphere
     const sphere = BABYLON.MeshBuilder.CreateSphere('sphere', { diameter: 2 }, scene);
