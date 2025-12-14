@@ -12,14 +12,13 @@ export function setupCamera(scene, canvas) {
     // wheel out = zoom out
 
   window.addEventListener('wheel', (e) => {
-    e.preventDefault();
 
-    const zoomSpeed = 0.5;
+    const zoomSpeed = 0.9;
 
     if (e.deltaY < 0) {
-        camera.position.y += zoomSpeed;
-    } else if (e.deltaY > 0) {
         camera.position.y -= zoomSpeed;
+    } else if (e.deltaY > 0) {
+        camera.position.y += zoomSpeed;
     }
   });
 
