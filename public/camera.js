@@ -19,9 +19,9 @@ export function setupCamera(scene, canvas) {
     const zoomSpeed = Math.abs(e.deltaY) * 0.01;
 
     if (e.deltaY < 0) {
-        cameraDirection -= zoomSpeed;
+        camera.position.y -= zoomSpeed;
     } else if (e.deltaY > 0) {
-        cameraDirection += zoomSpeed;
+        camera.position.y += zoomSpeed;
     }
   });
 
