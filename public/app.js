@@ -20,8 +20,8 @@
     
     // Render loop
     engine.runRenderLoop(() => {
-      sphere.rotation.x += 0.01;
-      sphere.rotation.y += 0.01;
+      // sphere.rotation.x += 0.01;
+      // sphere.rotation.y += 0.01;
       scene.render();
     });
     
