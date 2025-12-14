@@ -9,7 +9,7 @@ export function setupCamera(scene, canvas) {
 //   const keys = {};
   window.addEventListener('keydown', (e) => {
     keys[e.key] = true;
-    console.log(`${keys[e.key]}`)
+    // console.log(`${keys[e.key]}`)
   });
   window.addEventListener('keyup', (e) => {
     keys[e.key] = false;
