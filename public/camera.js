@@ -1,12 +1,5 @@
 export function setupCamera(scene, canvas) {
-  // const camera = new BABYLON.FreeCamera('camera1', new BABYLON.Vector3(0, 15, -2));
-  // camera.attachControl(canvas, false);
-  // camera.inertia = 0.7;
-  // camera.angularSensibility = 1000;
-  // camera.speed = 0;
-  // camera.rotation.x = -Math.PI / 2;
 
-    // Creates, angles, distances and targets the camera
 	var camera = new BABYLON.ArcRotateCamera("Camera", 0, 0, 10, new BABYLON.Vector3(0, 0, 0), scene);
 
     // This positions the camera
@@ -15,34 +8,34 @@ export function setupCamera(scene, canvas) {
     // This attaches the camera to the canvas
     camera.attachControl(canvas, true);
 
-  let cameraDirection = BABYLON.Vector3.Zero();  // declare here
+  // let cameraDirection = BABYLON.Vector3.Zero();  // declare here
 
   // Handle zoom
 
-  window.addEventListener('wheel', (e) => {
+  // window.addEventListener('wheel', (e) => {
 
-    const zoomSpeed = Math.abs(e.deltaY) * 0.01;
+  //   const zoomSpeed = Math.abs(e.deltaY) * 0.01;
 
-    if (e.deltaY < 0) {
-        camera.position.addInPlace(cameraDirection.scale(zoomSpeed));
-    } else if (e.deltaY > 0) {
-        camera.position.addInPlace(cameraDirection.scale(-zoomSpeed));
-    }
-  });
+  //   if (e.deltaY < 0) {
+  //       camera.position.addInPlace(cameraDirection.scale(zoomSpeed));
+  //   } else if (e.deltaY > 0) {
+  //       camera.position.addInPlace(cameraDirection.scale(-zoomSpeed));
+  //   }
+  // });
 
-  let wheelPressed = false;
+  // let wheelPressed = false;
 
-  window.addEventListener('mousedown', (e) => {
-    if (e.button === 1) wheelPressed = true;
-  });
+  // window.addEventListener('mousedown', (e) => {
+  //   if (e.button === 1) wheelPressed = true;
+  // });
 
-  window.addEventListener('mouseup', (e) => {
-    if (e.button === 1) wheelPressed = false;
-  });
+  // window.addEventListener('mouseup', (e) => {
+  //   if (e.button === 1) wheelPressed = false;
+  // });
 
-  scene.registerBeforeRender(() => {
-    cameraDirection = BABYLON.Vector3.Normalize(camera.getDirection(BABYLON.Axis.Z));
-  });
+  // scene.registerBeforeRender(() => {
+  //   cameraDirection = BABYLON.Vector3.Normalize(camera.getDirection(BABYLON.Axis.Z));
+  // });
 
 
 //   const keys = {};
