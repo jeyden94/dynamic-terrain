@@ -6,8 +6,8 @@ export function setupCamera(scene, canvas) {
     camera.lowerRadiusLimit = 6;
     camera.upperRadiusLimit = 60;
 
-    camera.lowerBetaLimit = 0.1;              // Almost top-down, but not quite
-    camera.upperBetaLimit = Math.PI / 2 - 0.1; // Almost horizontal, but not quite
+    camera.lowerBetaLimit = 0.3;              // Almost top-down, but not quite
+    camera.upperBetaLimit = 1.2;              // Almost horizontal, but not quite
 
     // Edge scroll settings
     var edgeScrollSpeed = 0.3;
