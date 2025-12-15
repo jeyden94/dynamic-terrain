@@ -10,7 +10,7 @@ export function setupCamera(scene, canvas) {
     camera.upperBetaLimit = 1.2;              // Almost horizontal, but not quite
 
     // Edge scroll settings
-    var edgeScrollSpeed = 0.3;
+    var edgeScrollSpeed = 3;
     var edgeThreshold = 0.05;
     var lastMouseX = 0;
     var lastMouseY = 0;
