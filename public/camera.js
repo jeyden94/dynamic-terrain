@@ -11,10 +11,5 @@ export function setupCamera(scene, canvas) {
   camera.lowerRadiusLimit = 6;
   camera.upperRadiusLimit = 60;
 
-  // Gui to move camera with mouse 
-  const gui = new BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI('ui');   
-
-  
-
 
 }
