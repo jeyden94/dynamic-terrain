@@ -1,3 +1,5 @@
+import { showMenu, hideMenu } from "./menu.js";
+
 export function setupCamera(scene, canvas) {
 
     var camera = new BABYLON.ArcRotateCamera("Camera", 0, Math.PI / 4, 20, new BABYLON.Vector3(0, 0, 0), scene);
@@ -15,12 +17,23 @@ export function setupCamera(scene, canvas) {
     var lastMouseX = 0;
     var lastMouseY = 0;
 
+    // Pause camera
+    var pause = false;
+
     canvas.addEventListener("mousemove", function(evt) {
         lastMouseX = evt.clientX;
         lastMouseY = evt.clientY;
     });
 
+    canvas.addEventListener("contextmenu", function(evt) {
+        pause === false ? pause = true : pause = false;
+        pause === false ? console.log("UNPAUSED") : console.log("PAUSED");
+        pause === false ? hideMenu() : showMenu()
+    })
+
     scene.onBeforeRenderObservable.add(function() {
+        pause === true ? edgeScrollSpeed = 0 : edgeScrollSpeed = 3;
+
         var width = canvas.clientWidth;
         var height = canvas.clientHeight;
         

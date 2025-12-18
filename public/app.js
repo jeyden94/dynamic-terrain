@@ -10,7 +10,7 @@
     var camera = setupCamera(scene, canvas);
 
     // Tracker Mouse Actions
-    var pointer = trackPointer(scene);
+    // var pointer = trackPointer(scene);
 
     // Create Map 
     var map = createMap(scene);
